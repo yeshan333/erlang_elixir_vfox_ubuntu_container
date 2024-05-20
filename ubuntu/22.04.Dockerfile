@@ -60,6 +60,7 @@ RUN echo "deb [trusted=yes] https://apt.fury.io/versionfox/ /" | sudo tee /etc/a
    && apt-get update \
    && apt-get install -y vfox
 
+SHELL ["/bin/bash", "-c"]
 ENV ERLANG_VERSION=26.2.5
 ENV ELIXIR_VERSION=1.16.2
 ENV MAKEFLAGS=-j8
