@@ -69,9 +69,9 @@ ENV ELIXIR_VERSION=1.16.2
 ENV MAKEFLAGS=-j8
 RUN vfox add erlang \
     && vfox add elixir \
-    && vfox install erlang@${ERLANG_VERSION} \
-    && vfox use -g erlang@${ERLANG_VERSION} \
-RUN bash -c 'eval "$(vfox activate bash)"' \
-    && bash -c 'vfox install elixir@${ELIXIR_VERSION}'
+    && vfox install erlang@${ERLANG_VERSION}
+RUN vfox use erlang@${ERLANG_VERSION} \
+    && eval "$(vfox activate bash)" \
+    && vfox install elixir@${ELIXIR_VERSION}
 
 RUN echo 'root:EnjoyLife' | chpasswd
