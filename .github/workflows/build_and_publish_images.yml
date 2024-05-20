@@ -38,7 +38,7 @@ jobs:
         with:
           file: ubuntu/22.04.Dockerfile
           context: .
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tags: |
             ${{ github.repository_owner }}/erlang_elixir_vfox_ubuntu_container:latest

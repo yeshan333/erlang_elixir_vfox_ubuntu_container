@@ -54,7 +54,10 @@ RUN wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/p
     && rm /root/.poshthemes/themes.zip \
     && echo 'eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/emodipt-extend.omp.json)"' >> /root/.bashrc
 # Remember install fonts
-# oh-my-posh font install
+RUN cd /tmp \
+    && git clone https://github.com/ryanoasis/nerd-fonts.git \
+    && cd nerd-fonts \
+    && ./install.sh
 
 RUN echo "deb [trusted=yes] https://apt.fury.io/versionfox/ /" | sudo tee /etc/apt/sources.list.d/versionfox.list \
    && apt-get update \
