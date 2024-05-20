@@ -55,7 +55,7 @@ RUN wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/p
     && echo 'eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/emodipt-extend.omp.json)"' >> /root/.bashrc
 # Remember install fonts
 RUN cd /tmp \
-    && git clone https://github.com/ryanoasis/nerd-fonts.git \
+    && git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 \
     && cd nerd-fonts \
     && ./install.sh
 
