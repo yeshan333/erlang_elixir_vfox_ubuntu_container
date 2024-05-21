@@ -61,7 +61,8 @@ RUN cd /tmp \
 
 RUN echo "deb [trusted=yes] https://apt.fury.io/versionfox/ /" | sudo tee /etc/apt/sources.list.d/versionfox.list \
    && apt-get update \
-   && apt-get install -y vfox
+   && apt-get install -y vfox \
+   && echo 'eval "$(vfox activate bash)"' >> ~/.bashrc
 
 SHELL ["/bin/bash", "-c"]
 ENV ERLANG_VERSION=26.2.5
