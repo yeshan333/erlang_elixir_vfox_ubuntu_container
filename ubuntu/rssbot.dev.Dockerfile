@@ -61,8 +61,7 @@ RUN cd /tmp \
 
 RUN echo "deb [trusted=yes] https://apt.fury.io/versionfox/ /" | sudo tee /etc/apt/sources.list.d/versionfox.list \
    && apt-get update \
-   && apt-get install -y vfox \
-   && echo 'eval "$(vfox activate bash)"' >> ~/.bashrc
+   && apt-get install -y vfox
 
 SHELL ["/bin/bash", "-c"]
 ENV ERLANG_VERSION=26.2.5
@@ -74,5 +73,7 @@ RUN vfox add erlang \
 RUN vfox use erlang@${ERLANG_VERSION} \
     && eval "$(vfox activate bash)" \
     && vfox install elixir@${ELIXIR_VERSION}
+
+RUN vfox add mongo && vfox install mongo@x86_64-ubuntu2004-5.0.26
 
 RUN echo 'root:EnjoyLife' | chpasswd
